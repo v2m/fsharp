@@ -81,7 +81,9 @@ module internal ExtensionTyping =
     val GetTypeProvidersOfAssembly : 
           displayPSTypeProviderSecurityDialogBlockingUI : (string->unit) option 
           * validateTypeProviders: bool 
+#if TYPE_PROVIDER_SECURITY
           * ApprovalIO.TypeProviderApprovalStatus list ref 
+#endif
           * runtimeAssemblyFilename: string 
           * ilScopeRefOfRuntimeAssembly:ILScopeRef
           * designerAssemblyName: string 
