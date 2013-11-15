@@ -325,7 +325,9 @@ module internal ExtensionTyping =
 
     let GetTypeProvidersOfAssembly(displayPSTypeProviderSecurityDialogBlockingUI : (string->unit) option, 
                                    validateTypeProviders:bool, 
+#if TYPE_PROVIDER_SECURITY
                                    approvals, 
+#endif
                                    runTimeAssemblyFileName:string, 
                                    ilScopeRefOfRuntimeAssembly:ILScopeRef,
                                    designTimeAssemblyNameString:string, 
@@ -540,7 +542,7 @@ module internal ExtensionTyping =
         member __.GetAllNestedTypes() = x.GetNestedTypes(bindingFlags ||| System.Reflection.BindingFlags.NonPublic) |> ProvidedType.CreateArray ctxt
         member __.GetNestedTypes() = x.GetNestedTypes(bindingFlags) |> ProvidedType.CreateArray ctxt
         /// Type.GetNestedType(string) can return null if there is no nested type with given name
-        member __.GetNestedType nm = x.GetNestedType nm |> ProvidedType.Create ctxt
+        member __.GetNestedType nm = x.GetNestedType (nm, bindingFlags) |> ProvidedType.Create ctxt
         /// Type.GetGenericTypeDefinition() either returns type or throws exception, null is not permitted
         member __.GetGenericTypeDefinition() = x.GetGenericTypeDefinition() |> ProvidedType.CreateWithNullCheck ctxt "GenericTypeDefinition"
         /// Type.BaseType can be null when Type is interface or object
