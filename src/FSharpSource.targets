@@ -499,21 +499,15 @@
   <Import Project="..\Proto\$(protoCLIDir)\bin\Microsoft.FSharp-proto.Targets"
           Condition="'$(BuildWith)' == '' 
                      AND '$(ProjectLanguage)' == 'FSharp' "/>
-  <Import Project="$(MSBuildExtensionsPath32)\FSharp\1.0\Microsoft.FSharp.Targets"
-          Condition="'$(BuildWith)' == 'LKG' AND 
-                     '$(ProjectLanguage)' == 'FSharp' AND 
-                     !Exists('$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll') " />
   <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets"
           Condition="'$(BuildWith)' == 'LKG' 
                       AND '$(ProjectLanguage)' == 'FSharp' 
                       AND '$(TargetFramework)'!='portable47'
-                      AND Exists('$(MSBuildBinPath)\Microsoft.Build.Tasks.v4.0.dll') 
                       AND Exists('$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets')" />
   <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft F#\v4.0\Microsoft.FSharp.Targets"
           Condition="'$(BuildWith)' == 'LKG' 
                       AND '$(TargetFramework)'!='portable47'
                       AND '$(ProjectLanguage)' == 'FSharp' 
-                      AND Exists('$(MSBuildBinPath)\Microsoft.Build.Tasks.v4.0.dll') 
                       AND (!Exists('$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets')) 
                       AND (Exists('$(MSBuildExtensionsPath32)\..\Microsoft F#\v4.0\Microsoft.FSharp.Targets'))" />
   <Import Project="Silverlight\$(SilverlightVersion)\FSharpSource.Silverlight.Common.targets"
