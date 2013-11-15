@@ -1,4 +1,4 @@
-﻿namespace UnitTests.Tests.LanguageService
+namespace UnitTests.Tests.LanguageService
 
 open System
 open NUnit.Framework

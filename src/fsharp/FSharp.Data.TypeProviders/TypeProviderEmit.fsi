@@ -1,4 +1,4 @@
-﻿#if TPEMIT_INTERNAL_AND_MINIMAL_FOR_TYPE_CONTAINERS
+#if TPEMIT_INTERNAL_AND_MINIMAL_FOR_TYPE_CONTAINERS
 namespace Internal.Utilities.TypeProvider.Emit
 #else
 namespace Microsoft.FSharp.TypeProvider.Emit

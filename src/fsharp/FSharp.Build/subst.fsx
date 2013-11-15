@@ -1,4 +1,4 @@
-﻿let x1,y1,x2,y2,x3,y3,file = 
+let x1,y1,x2,y2,x3,y3,file = 
    match System.Environment.GetCommandLineArgs() with 
    | [| _; x1;y1;x2;y2;x3;y3;file |] -> x1,y1,x2,y2,x3,y3,file
    | _ -> 

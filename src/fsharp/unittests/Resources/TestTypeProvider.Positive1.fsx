@@ -1,4 +1,4 @@
-﻿namespace HelloWorldTypeProvider
+namespace HelloWorldTypeProvider
 
 #r "System.Core.dll"
 #load @"extras\extenders\shared\TypeBuilder.fs"

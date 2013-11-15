@@ -1,4 +1,4 @@
-﻿namespace UnitTests.Tests.ProjectSystem
+namespace UnitTests.Tests.ProjectSystem
 
 // System namespaces
 open System

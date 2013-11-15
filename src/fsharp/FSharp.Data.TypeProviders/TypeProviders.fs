@@ -1,4 +1,4 @@
-﻿
+
 namespace Microsoft.FSharp.Data.TypeProviders.DesignTime
 #nowarn "57"
 

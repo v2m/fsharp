@@ -1,4 +1,4 @@
-﻿namespace UnitTests.TestLib.ProjectSystem
+namespace UnitTests.TestLib.ProjectSystem
 
 open System 
 open System.CodeDom

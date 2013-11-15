@@ -1,4 +1,4 @@
-﻿namespace EmptyAssembly
+namespace EmptyAssembly
 
 open Microsoft.FSharp.Core.CompilerServices
 

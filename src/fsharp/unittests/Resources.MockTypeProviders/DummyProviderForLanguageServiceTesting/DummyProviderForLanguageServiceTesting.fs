@@ -1,4 +1,4 @@
-﻿namespace DummyProviderForLanguageServiceTesting 
+namespace DummyProviderForLanguageServiceTesting 
 
 open Microsoft.FSharp.Core.CompilerServices
 open Microsoft.FSharp.TypeProvider.Emit

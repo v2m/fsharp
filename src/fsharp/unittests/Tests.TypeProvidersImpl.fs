@@ -1,4 +1,4 @@
-﻿namespace UnitTests.Tests
+namespace UnitTests.Tests
 
 open System.IO
 open NUnit.Framework

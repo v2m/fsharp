@@ -1,4 +1,4 @@
-﻿// Copyright (c) Microsoft Corporation 2005-2008.
+// Copyright (c) Microsoft Corporation 2005-2008.
 // This sample code is provided "as is" without warranty of any kind. 
 // We disclaim all warranties, either express or implied, including the 
 // warranties of merchantability and fitness for a particular purpose. 

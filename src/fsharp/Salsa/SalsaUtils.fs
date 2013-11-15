@@ -1,4 +1,4 @@
-﻿
+
 namespace Salsa
 
 open System

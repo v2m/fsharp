@@ -1,4 +1,4 @@
-﻿namespace Internal.Utilities.Diagnostic
+namespace Internal.Utilities.Diagnostic
 open System
 open System.Diagnostics
 open System.Reflection

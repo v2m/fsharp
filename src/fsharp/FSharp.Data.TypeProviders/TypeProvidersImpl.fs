@@ -1,4 +1,4 @@
-﻿namespace Microsoft.FSharp.Data.TypeProviders.DesignTime
+namespace Microsoft.FSharp.Data.TypeProviders.DesignTime
 
 open System
 open System.IO
