@@ -47,8 +47,9 @@
       <Link>fsimain.fs</Link>
     </Compile>
 -->
-    <None Include="fsiAnyCpu.exe.config">
+    <None Include="..\fsi\fsiAnyCpu.exe.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>fsiAnyCpu.exe.config</Link>
     </None>
   </ItemGroup>
   <ItemGroup>
