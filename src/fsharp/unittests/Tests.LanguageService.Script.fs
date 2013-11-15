@@ -1156,7 +1156,7 @@ type ScriptTests() as this =
         Assert.AreEqual(Path.Combine(projectFolder,"File1.fsx"), fas.ProjectFileNames.[0])
         Assert.AreEqual(1, fas.ProjectFileNames.Length)
 
-#if OUT_OF_VS_PRODUCT_BUILD
+#if OPEN_BUILD
 #else
 
     /// FEATURE: #reference against a strong name should work.

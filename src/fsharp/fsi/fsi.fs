@@ -2118,12 +2118,8 @@ type internal FsiEvaluationSession (argv:string[], inReader:TextReader, outWrite
     do InstallErrorLoggingOnThisThread errorLogger // FSI error logging on main thread.
 
     let updateBannerText() =
-#if OUT_OF_VS_PRODUCT_BUILD
-      tcConfigB.productNameForBannerText <- FSIstrings.SR.fsiProductName(FSharpEnvironment.FSharpTeamVersionNumber)
-#else
       // See bug 6071 for product banner spec
       tcConfigB.productNameForBannerText <- FSIstrings.SR.fsiProductName(FSharpEnvironment.DotNetBuildString)
-#endif
   
     do updateBannerText() // setting the correct banner so that 'fsi -?' display the right thing
 

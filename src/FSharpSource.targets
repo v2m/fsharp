@@ -16,6 +16,7 @@
     <OtherFlags>$(OtherFlags) --times</OtherFlags>
     <NoWarn>$(NoWarn);69;65;54;61;75</NoWarn>
     <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>OPEN_BUILD;$(DefineConstants)</DefineConstants>
   </PropertyGroup>
 
   <!-- For .NET 2.0 and 4.0, we use the version in 'source-build-version', initially 2.9.999 -->

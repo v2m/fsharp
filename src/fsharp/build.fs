@@ -2050,12 +2050,8 @@ type TcConfigBuilder =
           optSettings   = Opt.OptimizationSettings.Defaults
           emitTailcalls = true
           lcid = None
-#if OUT_OF_VS_PRODUCT_BUILD
-          productNameForBannerText = (FSComp.SR.buildProductName(FSharpEnvironment.FSharpTeamVersionNumber))
-#else
           // See bug 6071 for product banner spec
           productNameForBannerText = (FSComp.SR.buildProductName(FSharpEnvironment.DotNetBuildString))
-#endif          
           showBanner  = true 
           showTimes = false 
           showLoadedAssemblies = false

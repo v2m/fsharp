@@ -181,11 +181,7 @@ let SqmLoggerWithConfigBuilder (tcConfigB : TcConfigBuilder) (errors : int list)
             let sqmSession = sqm.BeginSession(SqmWrapper.FSHARP_APPID, false)
     
             // Log Build Version
-#if OUT_OF_VS_PRODUCT_BUILD
-            let buildVersion = FSharpEnvironment.FSharpTeamVersionNumber
-#else
             let buildVersion = FSharpEnvironment.DotNetBuildString
-#endif          
             sqm.SetStringDatapoint(sqmSession, SqmWrapper.DATAID_SQM_FSC_BUILDVERSION, buildVersion)
 
             // Log PrimaryAssembly, Platform, & Target
@@ -226,11 +222,7 @@ let SqmLoggerWithConfig (tcConfig : TcConfig) (errors : int list) =
             sqm.SetDatapoint(sqmSession, SqmWrapper.DATAID_SQM_FSC_COMPILETIME, (uint32)elapsed.TotalMilliseconds)
 
             // Log Build Version
-#if OUT_OF_VS_PRODUCT_BUILD
-            let buildVersion = FSharpEnvironment.FSharpTeamVersionNumber
-#else
             let buildVersion = FSharpEnvironment.DotNetBuildString
-#endif          
             sqm.SetStringDatapoint(sqmSession, SqmWrapper.DATAID_SQM_FSC_BUILDVERSION, buildVersion)
 
             // Log PrimaryAssembly, Platform & Target
