@@ -16,7 +16,6 @@
     <OtherFlags>$(OtherFlags) --times</OtherFlags>
     <NoWarn>$(NoWarn);69;65;54;61;75</NoWarn>
     <DebugSymbols>true</DebugSymbols>
-    <DefineConstants>OUT_OF_VS_PRODUCT_BUILD;$(DefineConstants)</DefineConstants>
   </PropertyGroup>
 
   <!-- For .NET 2.0 and 4.0, we use the version in 'source-build-version', initially 2.9.999 -->
@@ -28,15 +27,21 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(AssemblyName)' == 'FSharp.Core'">
-    <OtherFlags>$(OtherFlags) --version:4.3.0.0</OtherFlags>
-    <OtherFlags Condition="'$(TargetFramework)' == 'net20'">$(OtherFlags) --version:2.3.0.0</OtherFlags>
+    <OtherFlags>$(OtherFlags) --version:4.3.1.0</OtherFlags>
+    <OtherFlags Condition="'$(TargetFramework)' == 'net20'">$(OtherFlags) --version:2.3.1.0</OtherFlags>
     <OtherFlags Condition="'$(TargetFramework)' == 'portable47'">$(OtherFlags) --version:2.3.5.0</OtherFlags>
   </PropertyGroup>
 
   <!-- We sign with the Microsoft key and use delay-signing -->
-  <PropertyGroup Condition="('$(Configuration)'=='Debug' OR '$(Configuration)'=='Release') AND ('$(TargetFramework)' == 'net20' OR '$(TargetFramework)' == 'net40')">
+  <PropertyGroup Condition="'$(AssemblyName)' == 'FSharp.Core' AND ('$(Configuration)'=='Debug' OR '$(Configuration)'=='Release') AND ('$(TargetFramework)' == 'net20' OR '$(TargetFramework)' == 'net40')">
     <DefineConstants>STRONG_NAME_AND_DELAY_SIGN_FSHARP_COMPILER_WITH_MSFT_KEY;$(DefineConstants)</DefineConstants>
-    <OtherFlags>$(OtherFlags) --delaysign+ --keyfile:$(FSharpSourcesRoot)\fsharp\msft.pubkey</OtherFlags>
+    <OtherFlags>$(OtherFlags) --delaysign+ --keyfile:"$(FSharpSourcesRoot)\fsharp\msft.pubkey"</OtherFlags>
+    <StrongNames>true</StrongNames>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(AssemblyName)' != 'FSharp.Core' AND ('$(Configuration)'=='Debug' OR '$(Configuration)'=='Release') AND ('$(AssemblyName)'!='FSharp.Core')">
+    <DefineConstants>STRONG_NAME_FSHARP_COMPILER_WITH_TEST_KEY;$(DefineConstants)</DefineConstants>
+    <OtherFlags>$(OtherFlags) --keyfile:"$(FSharpSourcesRoot)\fsharp\test.snk"</OtherFlags>
     <StrongNames>true</StrongNames>
   </PropertyGroup>
 
