@@ -1,4 +1,4 @@
-﻿namespace Viz
+namespace Viz
 
 /// This type exists to have a concrete 'Target' type for a DebuggerVisualizerAttribute.
 /// Ideally it would be out in its own assembly, but then the compiler would need to take a dependency on that assembly, so instead we 
@@ -115,7 +115,7 @@ module internal MSBuildResolver =
         | _ -> []
 #else
         // FX_ATLEAST_45 is not defined is required for step when we build compiler with proto compiler and this branch should not be hit
-        assert false
+        // assert false
         []
 #endif        
 
@@ -136,7 +136,7 @@ module internal MSBuildResolver =
         | None -> []        
 #else
         // FX_ATLEAST_45 is not defined is required for step when we build compiler with proto compiler and this branch should not be hit
-        assert false
+        //assert false
         []
 #endif
 
