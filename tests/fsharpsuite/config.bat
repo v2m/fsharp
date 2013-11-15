@@ -199,7 +199,8 @@ IF EXIST "%FSCBinPath%\FSharp.Core.dll" set FSCOREDLLPATH=%FSCBinPath%
 set FSCOREDLLPATH=%FSCOREDLLPATH%\FSharp.Core.dll
 
 set FSCOREDLL20PATH=%FSCOREDLL20PATH%\FSharp.Core.dll
-IF EXIST "%FSCBinPath%\..\..\net20\bin0\FSharp.Core.dll" set FSCOREDLL20PATH=%FSCBinPath%\..\..\net20\bin\FSharp.Core.dll
+IF EXIST "%FSCBinPath%..\..\net20\bin\FSharp.Core.dll" set FSCOREDLL20PATH=%FSCBinPath%..\..\net20\bin\FSharp.Core.dll
+IF EXIST "%FSCBinPath%Runtime\2.0\FSharp.Core.dll" set FSCOREDLL20PATH=%FSCBinPath%Runtime\2.0\FSharp.Core.dll
 
 REM == Set standard flags for invoking powershell scripts
 IF NOT DEFINED PSH_FLAGS SET PSH_FLAGS=-nologo -noprofile -executionpolicy Unrestricted
