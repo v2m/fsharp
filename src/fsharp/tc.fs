@@ -8929,7 +8929,16 @@ and TcMethodApplication
                           | DefaultValue -> 
                               emptyPreBinder,mkDefault(mMethExpr,calledArgTy)
                           | Constant fieldInit -> 
-                              emptyPreBinder,Expr.Const(TcFieldInit mMethExpr fieldInit,mMethExpr,calledArgTy)  
+                              let expr = 
+                                  match calledArgTy with
+                                  | AppTy cenv.g (tcref, [inst]) when tyconRefEq cenv.g tcref cenv.g.system_Nullable_tcref ->
+                                      let expr = Expr.Const(TcFieldInit mMethExpr fieldInit,mMethExpr, inst)
+                                      let ctor = 
+                                          let nullableTy = mkILNonGenericBoxedTy(mkILTyRef(cenv.g.ilg.traits.ScopeRef, "System.Nullable`1"))
+                                          mkILCtorMethSpecForTy(nullableTy, [ILType.TypeVar 0us ]).MethodRef
+                                      Expr.Op(TOp.ILCall(false, false, true, true, NormalValUse, false, false, ctor, [inst], [], [calledArgTy]), [], [expr], mMethExpr)
+                                  | _ -> Expr.Const(TcFieldInit mMethExpr fieldInit,mMethExpr,calledArgTy)
+                              emptyPreBinder, expr  
                           | WrapperForIDispatch ->
                               let tref = mkILNonGenericBoxedTy(mkILTyRef(cenv.g.ilg.traits.SystemRuntimeInteropServicesScopeRef.Value, "System.Runtime.InteropServices.DispatchWrapper"))
                               let mref = mkILCtorMethSpecForTy(tref,[cenv.g.ilg.typ_Object]).MethodRef
